@@ -680,6 +680,39 @@ details.panel summary {
   margin-right: auto;
 }
 
+/* deploy */
+.steps {
+  margin: 8px 0 16px;
+  padding-left: 22px;
+}
+.steps li {
+  padding: 3px 0;
+  color: var(--muted);
+}
+.steps li.now {
+  color: var(--amber);
+  font-weight: 650;
+}
+.steps li.ok {
+  color: var(--pine);
+}
+.steps li.ok::after {
+  content: " ✓";
+}
+.small-head {
+  font-size: 14px;
+  margin: 16px 0 6px;
+}
+.code {
+  background: var(--ink);
+  color: #e6edf6;
+  padding: 12px 14px;
+  border-radius: var(--radius-s);
+  font-size: 13px;
+  overflow-x: auto;
+  user-select: all;
+}
+
 /* notice */
 .notice {
   position: fixed;

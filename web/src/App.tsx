@@ -13,10 +13,11 @@ import { Vendors } from "./sections/Vendors";
 import { Inbox } from "./sections/Inbox";
 import { Queue } from "./sections/Queue";
 import { History } from "./sections/History";
+import { Deploy } from "./sections/Deploy";
 import { Notice } from "./sections/ui";
 
-type Tab = "setup" | "leash" | "vendors" | "inbox" | "queue" | "history";
-const TABS: Tab[] = ["setup", "leash", "vendors", "inbox", "queue", "history"];
+type Tab = "setup" | "leash" | "vendors" | "inbox" | "queue" | "history" | "deploy";
+const TABS: Tab[] = ["setup", "leash", "vendors", "inbox", "queue", "history", "deploy"];
 
 export default function App() {
   const [lang, setLangState] = useState<Lang>(initialLang);
@@ -91,7 +92,7 @@ export default function App() {
               ))}
               <div className="rail-foot">
                 {chain.name}
-                {!configured && <div className="err-small">VITE_VAULT_ADDRESS / VITE_REGISTRY_ADDRESS missing</div>}
+                
                 {configured && <div className="mono-small">{short(cfg.vault!)}</div>}
               </div>
             </nav>
@@ -102,6 +103,7 @@ export default function App() {
               {tab === "inbox" && <Inbox />}
               {tab === "queue" && <Queue />}
               {tab === "history" && <History />}
+              {tab === "deploy" && <Deploy />}
             </main>
           </div>
           <Notice />

@@ -140,7 +140,7 @@ sit behind a Kernel v3.1 session-key module so the agent needs no tQDAY at all (
 contracts/   Foundry project: LeashVault, PayeeRegistry, tests, deploy + demo scripts
 shared/      ABIs, chain config, invoice fingerprint, plain-language errors (EN/DE), getLogsChunked
 agent/       Agent service: invoice reading (LLM or rules), payee matching, propose, keeper, gasless relay
-web/         React app (EN/DE): setup check, leash, vendors, inbox, queue with veto, history + CSV
+web/         React app (EN/DE): setup check, leash, vendors, inbox, queue with veto, history + CSV, in-browser deploy
 tools/       Shanghai opcode check, ABI export
 deployments/ Deployed addresses per chain ID (written by the deploy script)
 ```
@@ -183,6 +183,12 @@ make pay FILE=demo-invoices/01-webhost.txt    # or pay one invoice from the comm
 ```
 
 ## Deploy to Aevum testnet
+
+**Easiest: from the browser.** Open the web app, go to **Deploy**, click *Deploy with my wallet* and confirm
+two transactions in MetaMask. No private key leaves your wallet. The page then shows the lines to paste
+into `agent/.env` and `web/.env.local`. Then create a leash and register or allow vendors in the app.
+
+**Or with Foundry:**
 
 Gas is cheap (about 1 gwei): a payment costs roughly 0.0003 tQDAY, the full deployment well under
 0.01 tQDAY, so the faucet's 1 tQDAY + 5 tUSD8 are enough for deployment and a complete demo.

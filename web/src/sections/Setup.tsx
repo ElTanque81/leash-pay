@@ -1,7 +1,7 @@
 import { formatEther } from "viem";
 import { useApp } from "../ctx";
 import { useT } from "../i18n";
-import { cfg, chain } from "../lib/config";
+import { cfg, chain, configured } from "../lib/config";
 import { fmtUsd } from "../lib/tx";
 import { Section } from "./ui";
 
@@ -10,6 +10,16 @@ export function Setup({ go }: { go: (tab: string) => void }) {
   const { wallet, data } = useApp();
 
   const steps: { key: keyof typeof t.check; ok: boolean; detail?: string; action?: React.ReactNode }[] = [
+    {
+      key: "contracts",
+      ok: configured,
+      detail: configured ? `LeashVault ${cfg.vault}` : undefined,
+      action: !configured && (
+        <button className="primary" onClick={() => go("deploy")}>
+          {t.nav.deploy}
+        </button>
+      ),
+    },
     {
       key: "wallet",
       ok: Boolean(wallet.account),
