@@ -177,7 +177,7 @@ Then copy `agent/.env.example` → `agent/.env` and `web/.env.example` → `web/
 addresses, and start both:
 
 ```bash
-make agent     # terminal 2: API on :8787 + keeper
+pnpm agent     # terminal 2: API on :8787 + keeper (reads agent/.env)
 make web       # terminal 3: http://localhost:5173
 make pay FILE=demo-invoices/01-webhost.txt    # or pay one invoice from the command line
 ```

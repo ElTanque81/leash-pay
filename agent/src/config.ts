@@ -2,6 +2,13 @@ import { createPublicClient, createWalletClient, http, isAddress, type Address, 
 import { privateKeyToAccount } from "viem/accounts";
 import { chains, type NetworkName } from "@leash/shared";
 
+// Load agent/.env if present (Node 22 built-in; no extra package). Real env vars win.
+try {
+  process.loadEnvFile(new URL("../.env", import.meta.url));
+} catch {
+  /* no .env file: rely on the environment */
+}
+
 function need(name: string): string {
   const v = process.env[name];
   if (!v) throw new Error(`Missing env var ${name}. Copy agent/.env.example to agent/.env and fill it in.`);

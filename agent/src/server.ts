@@ -14,6 +14,8 @@ function send(res: ServerResponse, status: number, body: unknown) {
     "access-control-allow-origin": config.corsOrigin,
     "access-control-allow-headers": "content-type",
     "access-control-allow-methods": "GET, POST, OPTIONS",
+    // Lets the hosted app (https://…netlify.app) talk to the agent on localhost (Chrome Private Network Access).
+    "access-control-allow-private-network": "true",
   });
   res.end(JSON.stringify(body, (_k, v) => (typeof v === "bigint" ? v.toString() : v)));
 }
