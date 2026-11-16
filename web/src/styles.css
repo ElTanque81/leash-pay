@@ -181,6 +181,15 @@ select {
   border: 1.5px solid var(--line);
 }
 
+.banner {
+  margin: 12px 28px 0;
+  padding: 10px 14px;
+  border-radius: var(--radius-s);
+  background: var(--amber-soft);
+  color: #6b4a00;
+  font-weight: 600;
+}
+
 /* the tether: the one bold element */
 .tether {
   position: relative;

@@ -72,6 +72,7 @@ export function Vendors() {
                       <span className="mono">{short(p.payout)}</span>
                     )}
                     {frozen && <div className="flag warn">{t.frozenUntil(fmtDate(p.changeReadyAt, lang))}</div>}
+                    {l && p.payout.toLowerCase() === l.agent.toLowerCase() && <div className="flag bad">{t.payoutIsAgent}</div>}
                     {!p.active && <div className="flag">{t.retired}</div>}
                   </td>
                   <td className="right">

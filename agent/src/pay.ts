@@ -107,6 +107,7 @@ export async function handleInvoice(input: InvoiceInput & { fileName?: string; r
   const payees = await loadAllowedPayees();
   const match = matchPayee(invoice, payees);
   if (!match.ok) {
+    const list = payees.map((p) => `${p.name} (${p.domain || "–"})`).join(", ") || "–";
     return record({
       ...base,
       amount: invoice.amount,
@@ -116,8 +117,8 @@ export async function handleInvoice(input: InvoiceInput & { fileName?: string; r
         match.reason === "ambiguous"
           ? both("Several allowed vendors match. Please decide yourself.", "Mehrere freigegebene Lieferanten passen. Bitte selbst entscheiden.")
           : both(
-              `"${invoice.vendorName}" is not an allowed vendor on this leash. Nothing was paid.`,
-              `„${invoice.vendorName}“ ist kein freigegebener Lieferant dieses Mandats. Nichts bezahlt.`,
+              `"${invoice.vendorName}" (${invoice.vendorDomain ?? "no domain"}) is not an allowed vendor on leash #${config.leashId}. Nothing was paid. Allowed: ${list}.`,
+              `„${invoice.vendorName}“ (${invoice.vendorDomain ?? "keine Domain"}) ist kein freigegebener Lieferant von Leine #${config.leashId}. Nichts bezahlt. Freigegeben: ${list}.`,
             ),
     });
   }

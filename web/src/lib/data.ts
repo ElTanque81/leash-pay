@@ -63,6 +63,7 @@ export interface AgentHealth {
   agentGas: string;
   leashId: string;
   llm: boolean;
+  allowedPayees?: { id: string; name: string; domain: string; payable: boolean }[];
   keeper: { lastRun?: string; lastError?: string; watching: number };
 }
 

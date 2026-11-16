@@ -155,6 +155,8 @@ const en = {
   explorer: "Explorer",
   confirmInWallet: "Confirm in your wallet",
   lang: "Deutsch",
+  payoutIsAgent: "This payout address is your agent's key. The agent would be paying itself.",
+  connectedAsAgent: "You are connected with the agent's wallet. Switch to your owner wallet to manage the leash.",
 };
 
 type Dict = typeof en;
@@ -306,6 +308,8 @@ const de: Dict = {
   explorer: "Explorer",
   confirmInWallet: "In der Wallet bestätigen",
   lang: "English",
+  payoutIsAgent: "Diese Auszahlungsadresse ist der Schlüssel deines Agenten. Er würde sich selbst bezahlen.",
+  connectedAsAgent: "Du bist mit der Wallet des Agenten verbunden. Wechsle zur Besitzer-Wallet, um die Leine zu verwalten.",
 };
 
 export const dictionaries: Record<Lang, Dict> = { en, de };

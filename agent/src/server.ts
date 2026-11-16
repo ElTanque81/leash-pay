@@ -3,6 +3,7 @@ import { formatEther, isAddress, isHex, parseSignature, type Hex } from "viem";
 import { explainError, explorerTx, leashVaultAbi } from "@leash/shared";
 import { account, config, publicClient, walletClient } from "./config.js";
 import { activity, handleInvoice } from "./pay.js";
+import { loadAllowedPayees } from "./payees.js";
 import type { Keeper } from "./keeper.js";
 
 const MAX_BODY = 8 * 1024 * 1024; // 8 MB: enough for a PDF invoice
@@ -38,7 +39,10 @@ export function startServer(keeper: Keeper) {
       const url = new URL(req.url ?? "/", "http://x");
 
       if (req.method === "GET" && url.pathname === "/api/health") {
-        const gas = await publicClient.getBalance({ address: account.address });
+        const [gas, payees] = await Promise.all([
+          publicClient.getBalance({ address: account.address }),
+          loadAllowedPayees().catch(() => []),
+        ]);
         return send(res, 200, {
           ok: true,
           network: config.network,
@@ -49,6 +53,7 @@ export function startServer(keeper: Keeper) {
           registry: config.registry,
           leashId: config.leashId,
           llm: Boolean(config.anthropicKey),
+          allowedPayees: payees.map((p) => ({ id: p.payeeId, name: p.name, domain: p.domain, payable: p.payable })),
           keeper: { lastRun: keeper.lastRun, lastError: keeper.lastError, watching: keeper.queueSize },
         });
       }

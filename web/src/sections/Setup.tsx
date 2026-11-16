@@ -84,7 +84,9 @@ export function Setup({ go }: { go: (tab: string) => void }) {
       key: "agent",
       ok: Boolean(data.agent?.ok),
       detail: data.agent
-        ? `${data.agent.agent.slice(0, 10)}… · ${Number(data.agent.agentGas).toFixed(4)} tQDAY · ${data.agent.llm ? "AI" : "rules"}`
+        ? `${data.agent.agent.slice(0, 10)}…, ${t.leashNo(data.agent.leashId)}, ${Number(data.agent.agentGas).toFixed(4)} tQDAY, ${data.agent.llm ? "AI" : "rules"}${
+            data.agent.allowedPayees ? `, ${data.agent.allowedPayees.map((p) => p.name).join(" / ") || "–"}` : ""
+          }`
         : t.agentOffline,
     },
   ];

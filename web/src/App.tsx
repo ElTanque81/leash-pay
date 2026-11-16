@@ -80,6 +80,9 @@ export default function App() {
             </div>
           </header>
 
+          {wallet.account && data.agent && wallet.account.toLowerCase() === data.agent.agent.toLowerCase() && (
+            <p className="banner">{t.connectedAsAgent}</p>
+          )}
           <Tether />
 
           <div className="body">
