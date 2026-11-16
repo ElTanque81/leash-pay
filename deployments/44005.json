@@ -1,0 +1,11 @@
+{
+  "chainId": 44005,
+  "changeDelay": 120,
+  "identityRegistry": "0xF45E7f39Caba1d2055f613970575a7e7069636Be",
+  "registry": "0x905270563F7B976D592345eF133F5dFF0541670c",
+  "startBlock": 3310431,
+  "token": "0x456569838f1d43009A91ebA4263147Afd7233483",
+  "vault": "0xa95347A05A6262583677f5c6Fbbf129eFD018182",
+  "deployedFrom": "web app Deploy page (owner wallet 0xc519…4b0e2)",
+  "commit": "1d2199f"
+}

@@ -1,5 +1,5 @@
 import { createPublicClient, http, isAddress, type Address } from "viem";
-import { chains, TUSD8, type NetworkName } from "@leash/shared";
+import { chains, LEASH_AEVUM, TUSD8, type NetworkName } from "@leash/shared";
 
 const network = (import.meta.env.VITE_NETWORK ?? "aevum") as NetworkName;
 export const chain = chains[network] ?? chains.aevum;
@@ -38,13 +38,15 @@ export function saveDeployment(d: SavedDeployment | undefined) {
 }
 
 const saved = savedDeployment();
+// The public Aevum deployment is the default, so the hosted app works for anyone without setup.
+const defaults = network === "aevum" ? LEASH_AEVUM : undefined;
 
 export const cfg = {
   network,
-  vault: addr(saved?.vault) ?? addr(import.meta.env.VITE_VAULT_ADDRESS),
-  registry: addr(saved?.registry) ?? addr(import.meta.env.VITE_REGISTRY_ADDRESS),
+  vault: addr(saved?.vault) ?? addr(import.meta.env.VITE_VAULT_ADDRESS) ?? defaults?.vault,
+  registry: addr(saved?.registry) ?? addr(import.meta.env.VITE_REGISTRY_ADDRESS) ?? defaults?.registry,
   token: addr(import.meta.env.VITE_TOKEN_ADDRESS) ?? TUSD8,
-  startBlock: BigInt(saved?.startBlock ?? import.meta.env.VITE_START_BLOCK ?? "0"),
+  startBlock: BigInt(saved?.startBlock ?? import.meta.env.VITE_START_BLOCK ?? defaults?.startBlock ?? 0n),
   agentUrl: (import.meta.env.VITE_AGENT_URL ?? "http://localhost:8787").replace(/\/$/, ""),
   faucet: "https://faucet.qday.info/en",
   fromBrowserDeploy: Boolean(saved),

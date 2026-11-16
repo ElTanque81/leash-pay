@@ -205,11 +205,17 @@ for anything beyond a demo.
 
 ### Testnet deployment
 
+Live app: **https://leash-pay.netlify.app** (connect a wallet on Aevum testnet).
+
 | Contract | Address |
 | --- | --- |
-| PayeeRegistry | _added after deployment_ |
-| LeashVault | _added after deployment_ |
-| Deploy commit | _added after deployment_ |
+| LeashVault | [`0xa95347A05A6262583677f5c6Fbbf129eFD018182`](https://explorer-test.qday.info/address/0xa95347A05A6262583677f5c6Fbbf129eFD018182) |
+| PayeeRegistry | [`0x905270563F7B976D592345eF133F5dFF0541670c`](https://explorer-test.qday.info/address/0x905270563F7B976D592345eF133F5dFF0541670c) |
+| tUSD8 | [`0x456569838f1d43009A91ebA4263147Afd7233483`](https://explorer-test.qday.info/address/0x456569838f1d43009A91ebA4263147Afd7233483) |
+| ERC-8004 identity registry (linked) | `0xF45E7f39Caba1d2055f613970575a7e7069636Be` |
+| Start block | 3310431 |
+| Payout-change cooldown | 120 s (demo setting) |
+| Deployed from commit | `1d2199f`, via the in-app Deploy page |
 
 Explorer verification is currently unavailable on Aevum (`forge verify-contract` fails), so the addresses,
 deploy transactions and the commit hash are listed here instead.

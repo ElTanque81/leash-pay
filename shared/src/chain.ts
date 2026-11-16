@@ -44,3 +44,10 @@ export function explorerTx(hash: string, chainId: number): string | undefined {
 export function explorerAddress(addr: string, chainId: number): string | undefined {
   return chainId === aevum.id ? `${aevum.blockExplorers.default.url}/address/${addr}` : undefined;
 }
+
+/** Leash contracts deployed on Aevum testnet (see deployments/44005.json). */
+export const LEASH_AEVUM = {
+  vault: "0xa95347A05A6262583677f5c6Fbbf129eFD018182" as Address,
+  registry: "0x905270563F7B976D592345eF133F5dFF0541670c" as Address,
+  startBlock: 3310431n,
+};
