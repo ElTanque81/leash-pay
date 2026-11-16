@@ -10,6 +10,8 @@ invoice or a prompt injection, the contract still says no.
 Built for [Aevum Builder Challenge #1](https://dorahacks.io/hackathon/qday/detail) (Invoice Payments,
 Confirmation of Payee, Native AI Assistants).
 
+**Demo video:** https://youtu.be/EdGphFgwudA · **Live app:** https://leash-pay.netlify.app
+
 | | |
 | --- | --- |
 | Network | QDay Aevum testnet, chain ID `44005` |
