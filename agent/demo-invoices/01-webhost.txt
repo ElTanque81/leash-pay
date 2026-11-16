@@ -1,0 +1,12 @@
+Webhost GmbH
+Web: webhost.example
+billing@webhost.example
+
+INVOICE
+Invoice No: WH-2026-1107
+Date: 16.11.2026
+Due date: 30.11.2026
+
+Managed hosting, November 2026        0.29
+
+Total due: tUSD8 0.29

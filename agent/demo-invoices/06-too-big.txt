@@ -1,0 +1,10 @@
+Pixel Studio
+Web: pixel.example
+
+INVOICE
+Invoice No: PS-0078
+Due date: 2026-12-20
+
+Full brand identity package            2.50
+
+Total due: USD 2.50

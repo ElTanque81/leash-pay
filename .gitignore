@@ -1,0 +1,13 @@
+node_modules/
+dist/
+contracts/out/
+contracts/cache/
+contracts/broadcast/*/31337/
+contracts/broadcast/*/440050/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+deployments/31337.json
+deployments/440050.json

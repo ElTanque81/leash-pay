@@ -1,0 +1,10 @@
+Pixel Studio
+Web: pixel.example
+
+INVOICE
+Invoice No: PS-0077
+Due date: 2026-12-05
+
+Landing page redesign (milestone 2)    1.50
+
+Total due: USD 1.50

@@ -1,0 +1,16 @@
+{
+  "name": "leash-pay",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Leash: let an AI agent pay invoices in tUSD8 on QDay Aevum, within limits enforced on-chain.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "agent": "pnpm --filter @leash/agent start",
+    "pay": "pnpm --filter @leash/agent pay",
+    "web": "pnpm --filter @leash/web dev",
+    "build:web": "pnpm --filter @leash/web build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r --if-present test"
+  }
+}

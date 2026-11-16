@@ -1,0 +1,10 @@
+Webh0st Services Ltd
+Web: webh0st.example
+
+INVOICE
+Invoice No: 99812
+Due date: 20.11.2026
+
+Hosting                                1.90
+
+Total due: USD 1.90
